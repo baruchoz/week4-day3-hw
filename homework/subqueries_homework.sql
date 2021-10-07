@@ -78,6 +78,8 @@ JOIN actor
 ON actor.actor_id = film_actor.actor_id
 ORDER BY film_id;
 
+--Couldnt get anything to work but these were my two thought processes ^
+
 
 -- Question 7
 
