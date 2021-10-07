@@ -8,14 +8,20 @@ SELECT *
 FROM film_actor;
 
 -- Inner Join on Film Actor table with the Film Table
-SELECT * FROM film_actor JOIN film ON film_actor.film_id = film.film_id;
+SELECT * 
+FROM film_actor 
+JOIN film 
+ON film_actor.film_id = film.film_id;
 
 -- Inner Join on Film Actor table with the Actor Table
-SELECT * FROM film_actor JOIN actor ON film_actor.actor_id = actor.actor_id;
+SELECT * 
+FROM film_actor 
+JOIN actor 
+ON film_actor.actor_id = actor.actor_id;
 
 
 -- Join Film to Actor through the Film Actor table
-SELECT a_.actor_id, a_.first_name, a_.last_name, f.film_id, f.title, f.release_year
+SELECT a_.actor_id, f.film_id, f.title
 FROM film_actor AS f_a 
 JOIN film AS f
 On f_a.film_id = f.film_id
@@ -54,11 +60,12 @@ LIMIT 3; -- how many to show
 
 --BEWARE!
 -- WHAT CATEGORIES were the most popular
-SELECT category_id, COUNT(*) AS total
+SELECT category_id, COUNT(*)
 FROM film_category
 GROUP BY category_id
 HAVING COUNT(*) > 60
-ORDER BY total DESC;
+ORDER BY COUNT(*) DESC;
+
 
 SELECT *
 FROM category
